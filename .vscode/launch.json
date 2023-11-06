@@ -6,7 +6,7 @@
             "type": "cppdbg",
             "request": "launch",
             "preLaunchTask": "Build Tests - Debug",
-            "program": "${workspaceFolder}/template-project/build/tests/scons-debug/template-project-tests.elf",
+            "program": "${workspaceFolder}/aim_bot_repo-project/build/tests/scons-debug/aim_bot_repo-project-tests.elf",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
@@ -26,7 +26,7 @@
             "type": "cppdbg",
             "request": "launch",
             "preLaunchTask": "Build Sim - Debug",
-            "program": "${workspaceFolder}/template-project/build/sim/scons-debug/template-project.elf",
+            "program": "${workspaceFolder}/aim_bot_repo-project/build/sim/scons-debug/aim_bot_repo-project.elf",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
@@ -48,10 +48,10 @@
             "servertype": "openocd",
             "cwd": "${workspaceRoot}",
             "preLaunchTask": "Program - Debug",
-            "executable": "./template-project/build/hardware/scons-debug/template-project.elf",
+            "executable": "./aim_bot_repo-project/build/hardware/scons-debug/aim_bot_repo-project.elf",
             "device": "STM32F427II",
             "configFiles": [
-                "./template-project/openocd.cfg"
+                "./aim_bot_repo-project/openocd.cfg"
             ]
         }
     ]

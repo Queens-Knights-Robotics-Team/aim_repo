@@ -73,17 +73,21 @@
     },
     "C_Cpp.errorSquiggles": "Enabled",
     "C_Cpp.default.includePath": [
-        "template-project/taproot/src",
-        "template-project/src",
+        "aim_bot_repo-project/taproot/src",
+        "aim_bot_repo-project/src",
     ],
     "C_Cpp.default.cppStandard": "c++20",
     "C_Cpp.default.cStandard": "c11",
     "C_Cpp.default.forcedInclude": [
-        "template-project/robot-type/robot_type.hpp"
+        "aim_bot_repo-project/robot-type/robot_type.hpp"
     ],
     "[markdown]": {
         "editor.wordWrap": "off",
-        "editor.quickSuggestions": false,
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        },
         "editor.rulers": [
             100
         ]
