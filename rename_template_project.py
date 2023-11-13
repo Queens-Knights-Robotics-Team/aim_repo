@@ -87,4 +87,4 @@ for root, dirs, files in os.walk('.'):
         os.remove(f'{file}.bak')
 
 # rename the template project directory
-os.rename('template-project', f'{new_repo_name}-project')
+os.rename('aim_bot_repo-project', f'{new_repo_name}-project')
