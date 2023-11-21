@@ -24,8 +24,7 @@
 
 #include "drivers.hpp"
 
-namespace src
-{
+
 /**
  * @return The singleton instance of the Drivers class. This is the only instance of the
  *      Drivers class that should be created anywhere in the non-unit test framework.
@@ -33,9 +32,9 @@ namespace src
  *      should be calling this function from -- `main.cpp` and `*_control.cpp`, either to
  *      run I/O stuff and to add a Drivers pointer to an instance of a Subsystem or Command.
  */
-src::Drivers *DoNotUse_getDrivers();
-using driversFunc = src::Drivers *(*)();
-}  // namespace src
+Drivers *DoNotUse_getDrivers();
+using driversFunc = Drivers *(*)();
+
 
 #endif  // DRIVERS_SINGLETON_HPP_
 

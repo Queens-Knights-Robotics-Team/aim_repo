@@ -15,7 +15,7 @@ using tap::motor::MotorId;
 namespace control
 {
 Robot::Robot(Drivers &drivers)
-    : drivers(drivers),
+    :drivers(drivers),
       // construct TurretSubsystem and TurretGimbalCommand
       turret(
           drivers,
