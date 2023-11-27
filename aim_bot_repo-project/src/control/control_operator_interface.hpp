@@ -1,6 +1,6 @@
 #pragma once
 
-//#include "tap/util_macros.hpp" // includes mockable
+#include "tap/util_macros.hpp" // includes mockable
 
 namespace tap::communication::serial
 {
@@ -15,9 +15,9 @@ public:
     ControlOperatorInterface(tap::communication::serial::Remote &remote);
 
     // Add getTurretPitchInput and getTurretYawInput function declarations
-    /*mockable*/ float getTurretPitchInput();                 
+    mockable float getTurretPitchInput();                 
 
-    /*mockable*/ float getTurretYawInput();
+    mockable float getTurretYawInput();
 
 private:
     tap::communication::serial::Remote &remote;

@@ -43,6 +43,15 @@
 /* control includes ---------------------------------------------------------*/
 #include "tap/architecture/clock.hpp"
 
+/* robot includes   ---------------------------------------------------------*/
+#include "control/robot.hpp"
+
+static constexpr float IMU_SMAPLE_FREQUENCY = 500;
+static constexpr float MAHONY_KP = 0.5f;
+static constexpr float MAHONY_KI = 0;
+
+control::Robot robot(*DoNotUse_getDrivers());
+
 /* define timers here -------------------------------------------------------*/
 tap::arch::PeriodicMilliTimer sendMotorTimeout(2);
 
@@ -70,6 +79,7 @@ int main()
 
     Board::initialize();
     initializeIo(drivers);
+    robot.initSubsystemCommands();
 
 #ifdef PLATFORM_HOSTED
     tap::motorsim::SimHandler::resetMotorSims();
@@ -104,7 +114,6 @@ static void initializeIo(Drivers *drivers)
     drivers->errorController.init();
     drivers->remote.initialize();
     drivers->mpu6500.init();
-    drivers->refSerial.initialize();
     drivers->terminalSerial.initialize();
     drivers->schedulerTerminalHandler.init();
     drivers->djiMotorTerminalSerialHandler.init();

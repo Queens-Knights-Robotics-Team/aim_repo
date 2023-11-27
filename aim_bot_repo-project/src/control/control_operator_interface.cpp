@@ -18,6 +18,6 @@ float ControlOperatorInterface::getTurretPitchInput()
 
 float ControlOperatorInterface::getTurretYawInput()
 {
-    return limitVal(remote.getChannel(Remote::Channel::RIGHT_HORIZONTAL), -1.0f, 1.0f);
+    return limitVal(remote.getChannel(Remote::Channel::LEFT_HORIZONTAL), -1.0f, 1.0f);
 }
 }  // namespace control
