@@ -17,8 +17,7 @@
  * along with aim_bot_repo.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#ifndef DRIVERS_SINGLETON_HPP_
-#define DRIVERS_SINGLETON_HPP_
+#pragma once
 
 #ifndef ENV_UNIT_TESTS
 
@@ -36,6 +35,5 @@ Drivers *DoNotUse_getDrivers();
 using driversFunc = Drivers *(*)();
 
 
-#endif  // DRIVERS_SINGLETON_HPP_
+#endif  
 
-#endif
