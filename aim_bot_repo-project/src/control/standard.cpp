@@ -20,6 +20,7 @@ Robot::Robot(Drivers &drivers)
       turret(
           drivers,
           turret::TurretConfig{
+            // left side motors
               .pitchId = MotorId::MOTOR2,
               .yawId = MotorId::MOTOR3,
               .canBus = CanBus::CAN_BUS1,
