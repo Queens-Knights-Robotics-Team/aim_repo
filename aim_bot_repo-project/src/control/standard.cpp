@@ -21,7 +21,7 @@ Robot::Robot(Drivers &drivers)
           drivers,
           turret::TurretConfig{
             // left side motors
-              .pitchId = MotorId::MOTOR2,
+              .pitchId = MotorId::MOTOR8,
               .yawId = MotorId::MOTOR3,
               .canBus = CanBus::CAN_BUS1,
               .velocityPidConfig = modm::Pid<float>::Parameter(10, 0, 0, 0, 16'000),
@@ -43,6 +43,7 @@ void Robot::initializeSubsystems()
 {
     // initialize declared ChassisSubsystem
     turret.initialize();
+    
 }
 
 void Robot::registerSoldierSubsystems()
