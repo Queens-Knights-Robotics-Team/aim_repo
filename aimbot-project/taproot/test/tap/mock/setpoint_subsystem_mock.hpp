@@ -55,6 +55,8 @@ public:
     MOCK_METHOD(bool, isCalibrated, (), (override));
     MOCK_METHOD(bool, isOnline, (), (override));
     MOCK_METHOD(float, getVelocity, (), (override));
+    // New: Added by Lexy, January 15th 2023
+    MOCK_METHOD(float, getPosition, (), (override));
 };
 
 }  // namespace mock

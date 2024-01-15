@@ -26,6 +26,9 @@ struct TurretConfig
     tap::motor::MotorId yawId;
     tap::can::CanBus canBus;
     modm::Pid<float>::Parameter velocityPidConfig;
+    // Edit: Jan 15th 2023
+    // configure the PID controller for position control
+    modm::Pid<float>::Parameter positionPidConfig;
 };
 
 ///
@@ -92,6 +95,16 @@ private:
 
     /// PID controllers. Input desired wheel velocity, output desired motor current.
     std::array<Pid, static_cast<uint8_t>(MotorId::NUM_MOTORS)> pidControllers;
+
+    // Edit: Jan 15th 2023
+    // include PID controllers for position control 
+    std::array<Pid, static_cast<uint8_t>(MotorId::NUM_MOTORS)> positionPidControllers;
+
+public:
+    void setPositionGimbal(float pitch, float yaw);
+
+private:
+    void runPositionPid(Pid &pid, Motor &motor, float desiredPosition);
 
 protected:
     /// Motors.

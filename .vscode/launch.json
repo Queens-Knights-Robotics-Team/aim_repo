@@ -1,58 +1,66 @@
 {
-    "version": "0.2.0",
-    "configurations": [
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Tests",
+      "type": "cppdbg",
+      "request": "launch",
+      "preLaunchTask": "Build Tests - Debug",
+      "program": "${workspaceFolder}/aim_bot_repo-project/build/tests/scons-debug/aim_bot_repo-project-tests.elf",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
         {
-            "name": "Debug Tests",
-            "type": "cppdbg",
-            "request": "launch",
-            "preLaunchTask": "Build Tests - Debug",
-            "program": "${workspaceFolder}/aim_bot_repo-project/build/tests/scons-debug/aim_bot_repo-project-tests.elf",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "gdb",
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ]
-        },
-        {
-            "name": "Debug Sim",
-            "type": "cppdbg",
-            "request": "launch",
-            "preLaunchTask": "Build Sim - Debug",
-            "program": "${workspaceFolder}/aim_bot_repo-project/build/sim/scons-debug/aim_bot_repo-project.elf",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "gdb",
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ]
-        },
-        {
-            "name": "Debug Hardware",
-            "type": "cortex-debug",
-            "request": "launch",
-            "servertype": "openocd",
-            "cwd": "${workspaceRoot}",
-            "preLaunchTask": "Program - Debug",
-            "executable": "./aim_bot_repo-project/build/hardware/scons-debug/aim_bot_repo-project.elf",
-            "device": "STM32F427II",
-            "configFiles": [
-                "./aim_bot_repo-project/openocd.cfg"
-            ]
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
         }
-    ]
+      ]
+    },
+    {
+      "name": "Debug Sim",
+      "type": "cppdbg",
+      "request": "launch",
+      "preLaunchTask": "Build Sim - Debug",
+      "program": "${workspaceFolder}/aim_bot_repo-project/build/sim/scons-debug/aim_bot_repo-project.elf",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    },
+    {
+      "name": "Debug Hardware",
+      "type": "cortex-debug",
+      "request": "launch",
+      "servertype": "openocd",
+      "cwd": "${workspaceRoot}",
+      "preLaunchTask": "Program - Debug",
+      "executable": "./aim_bot_repo-project/build/hardware/scons-debug/aim_bot_repo-project.elf",
+      "device": "STM32F427II",
+      "configFiles": [
+        "./aim_bot_repo-project/openocd.cfg"
+      ]
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/lexygregory/QKRT/aim_repo/aimbot-project/src/control/turret",
+      "program": "/Users/lexygregory/QKRT/aim_repo/aimbot-project/src/control/turret/build/Debug/outDebug"
+    }
+  ]
 }
