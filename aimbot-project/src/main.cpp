@@ -45,6 +45,7 @@
 
 /* robot includes   ---------------------------------------------------------*/
 #include "control/robot.hpp"
+#include "run_flywheel.hpp"
 
 static constexpr float IMU_SMAPLE_FREQUENCY = 500;
 static constexpr float MAHONY_KP = 0.5f;
@@ -89,6 +90,8 @@ int main()
 
     while (1)
     {
+
+        run_fly(drivers);
         // do this as fast as you can
         PROFILE(drivers->profiler, updateIo, (drivers));
 
