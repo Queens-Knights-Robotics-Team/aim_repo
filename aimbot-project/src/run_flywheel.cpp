@@ -20,9 +20,9 @@ int run_fly(Drivers *drivers)
 
         //uncomment this to shoot
 
-        drivers->pwm.write(0.48f, tap::gpio::Pwm::X);
+        drivers->pwm.write(0.30f, tap::gpio::Pwm::X);
 
-        drivers->pwm.write(0.48f, tap::gpio::Pwm::Y);
+        drivers->pwm.write(0.30f, tap::gpio::Pwm::Y);
 
 
 

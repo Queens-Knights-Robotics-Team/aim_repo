@@ -91,7 +91,7 @@ int main()
     while (1)
     {
 
-        // run_fly(drivers);
+        run_fly(drivers);
         // // do this as fast as you can
         PROFILE(drivers->profiler, updateIo, (drivers));
 
