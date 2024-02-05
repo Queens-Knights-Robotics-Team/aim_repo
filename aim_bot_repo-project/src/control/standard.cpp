@@ -21,8 +21,8 @@ Robot::Robot(Drivers &drivers)
           drivers,
           turret::TurretConfig{
             // left side motors
-              .pitchId = MotorId::MOTOR8,
-              .yawId = MotorId::MOTOR3,
+              .pitchId = MotorId::MOTOR5,
+              .yawId = MotorId::MOTOR6,
               .canBus = CanBus::CAN_BUS1,
               .velocityPidConfig = modm::Pid<float>::Parameter(10, 0, 0, 0, 16'000),
           }),
