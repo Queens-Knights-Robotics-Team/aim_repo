@@ -19,10 +19,6 @@ ControlOperatorInterface::ControlOperatorInterface(Remote &remote) : remote(remo
 float ControlOperatorInterface::getTurretPitchInput()
 {
     return limitVal(remote.getChannel(Remote::Channel::LEFT_VERTICAL), -1.0f, 1.0f);
-    pwm.init();
-    pwm.setTimerFrequency(tap::gpio::Pwm::Timer::TIMER8, 1000);
-    pwm.start(tap::gpio::Pwm::Timer::TIMER8);
-    pwm.write(limitVal(remote.getChannel(Remote::Channel::LEFT_VERTICAL), -1.0f, 1.0f), tap::gpio::Pwm::Pin::Z);
 }
 
 float ControlOperatorInterface::getTurretYawInput()
