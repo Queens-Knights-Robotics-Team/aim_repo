@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2020-2021 QKRT
  *
- * This file is part of aim_bot_repo.
+ * This file is part of aim_bot_repo. 
  *
  * aim_bot_repo is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
