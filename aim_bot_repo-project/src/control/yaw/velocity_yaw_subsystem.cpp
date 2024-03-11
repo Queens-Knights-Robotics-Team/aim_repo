@@ -16,35 +16,23 @@ VelocityYawSubsystem::VelocityYawSubsystem(
     Drivers& drivers,
     const control::algorithms::EduPidConfig& pidConfig,
     tap::motor::DjiMotor& yaw)
-    : tap::control::Subsystem(&drivers),
+    : Subsystem(&drivers),
       yaw(yaw),
-      velocityPid(pidConfig)
-{
-}
+      velocityPid(pidConfig){};
 
 // initialize function
 void VelocityYawSubsystem::initialize() { yaw.initialize(); }
 
 // refresh function
-void VelocityYawSubsystem::refresh()
-{
-    if (!isOnline())
-    {
+void VelocityYawSubsystem::refresh() {
+    if(!isOnline()){
         calibrated = false;
     }
-
-    if (isCalibrated())
-    {
-        const uint32_t curTime = getTimeMilliseconds();
-        const uint32_t dt = curTime - prevTime;
-        prevTime = curTime;
-
-        const float error = velocitySetpoint - getCurrentValue();
-
-        velocityPid.runControllerDerivateError(error, dt);
-    }
-    else
-    {
+    if(calibrated){
+        velocityPid.runControllerDerivateError(getSetpoint() - getCurrentValue(), tap::arch::clock::getTimeMilliseconds() - prevTime);
+        prevTime = tap::arch::clock::getTimeMilliseconds();
+        yaw.setDesiredOutput(velocityPid.getOutput());
+    }else{
         calibrateHere();
     }
 }
@@ -67,7 +55,7 @@ bool VelocityYawSubsystem::calibrateHere()
     }
     yawCalibratedZeroAngle = getUncalibratedYawAngle();
     calibrated = true;
-    velocitySetpoint = 0.0f;
+    // velocitySetpoint = 0.0f;
     return true;
 }
 

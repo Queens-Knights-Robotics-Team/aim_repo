@@ -37,6 +37,8 @@ private:
     // VELOCITY YAW
     // declare VelocityYawSubsystem
     tap::motor::DjiMotor yawMotor;
+    algorithms::EduPidConfig eduPidConfig; 
+    tap::control::setpoint::MoveIntegralCommand::Config moveIntegralConfig;
     control::yaw::VelocityYawSubsystem yawSubsystem;
 
     // declare MoveIntegralCommand

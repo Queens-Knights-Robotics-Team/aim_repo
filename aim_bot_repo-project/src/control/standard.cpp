@@ -27,25 +27,21 @@ Robot::Robot(Drivers &drivers)
               .velocityPidConfig = modm::Pid<float>::Parameter(10, 0, 0, 0, 16'000),
           }),
       turretGimbal(turret, drivers.controlOperatorInterface),
-      // construct VelocityYawSubsystem and MoveIntegralCommand
-      yawMotor(&drivers, MotorId::MOTOR8, CanBus::CAN_BUS1, false, "yaw motor"),
-      yawSubsystem(
-          drivers,
-          {
-              .kp = 50'000,
-              .ki = 0,
-              .kd = 0,
-              .maxICumulative = 0,
-              .maxOutput = 16'000,
-          },
-          yawMotor),
-      rotateYaw(
-          yawSubsystem,
-          {
-              .targetIntegralChange = M_TWOPI / 10.0f,
-              .desiredSetpoint = M_TWOPI,
-              .integralSetpointTolerance = 0,
-          }),
+      yawMotor(&drivers, MotorId::MOTOR8, CanBus::CAN_BUS1, false, "e"),
+        eduPidConfig{
+            .kp = 1000,
+            .ki = 0,
+            .kd = 0,
+            .maxICumulative = 0,
+            .maxOutput = 16000
+        },
+        moveIntegralConfig{
+            .targetIntegralChange = M_TWOPI / 10.0f,
+            .desiredSetpoint = M_TWOPI,
+            .integralSetpointTolerance = 0
+        },
+        yawSubsystem(drivers, eduPidConfig, yawMotor), // FIX LATER
+        rotateYaw(yawSubsystem, moveIntegralConfig),
         // construct HoldRepeatCommandMapping and HoldCommandMapping
         rightSwitchUp(
             &drivers,
@@ -96,3 +92,23 @@ void Robot::registerSoldierIoMappings()
     drivers.commandMapper.addMap(&rightSwitchUp);
 }
 }  // namespace control
+
+// construct VelocityYawSubsystem and MoveIntegralCommand
+    //   yawMotor(&drivers, MotorId::MOTOR, CanBus::CAN_BUS1, false, "yaw motor"),
+    //   yawSubsystem(
+    //       drivers,
+    //       {
+    //           .kp = 50'000,
+    //           .ki = 0,
+    //           .kd = 0,
+    //           .maxICumulative = 0,
+    //           .maxOutput = 16'000,
+    //       },
+    //       yawMotor),
+    //   rotateYaw(
+    //       yawSubsystem,
+    //       {
+    //           .targetIntegralChange = M_TWOPI / 10.0f,
+    //           .desiredSetpoint = M_TWOPI,
+    //           .integralSetpointTolerance = 0,
+    //       }),

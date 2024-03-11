@@ -41,7 +41,7 @@ public:
     void initialize() override;
 
     /**
-     * @brief Checks if the agitator is connected and runs the velocity PID controller.
+     * @brief Checks if the yaw motor is connected and runs the velocity PID controller.
      */
     void refresh() override;
 
