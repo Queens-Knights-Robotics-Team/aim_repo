@@ -10,6 +10,8 @@ using tap::communication::serial::Remote;
 
 tap::gpio::Pwm pwm;
 
+#include <limits.h>
+
 
 namespace control
 {
@@ -27,6 +29,8 @@ float ControlOperatorInterface::getTurretPitchInput()
 
 float ControlOperatorInterface::getTurretYawInput()
 {
-    return limitVal(remote.getChannel(Remote::Channel::LEFT_HORIZONTAL), -1.0f, 1.0f);
+    // return limitVal(remote.getChannel(Remote::Channel::LEFT_HORIZONTAL), -1.0f, 1.0f);
+    return limitVal(float(remote.getMouseX())/float(std::numeric_limits<std::int16_t>::max()), -1.0f, 1.0f);
+
 }
 }  // namespace control
