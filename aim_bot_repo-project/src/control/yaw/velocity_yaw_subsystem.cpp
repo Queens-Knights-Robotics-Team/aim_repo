@@ -29,7 +29,8 @@ void VelocityYawSubsystem::refresh() {
         calibrated = false;
     }
     if(calibrated){
-        velocityPid.runControllerDerivateError(getSetpoint() - getCurrentValue(), tap::arch::clock::getTimeMilliseconds() - prevTime);
+        // velocityPid.runControllerDerivateError(getSetpoint() - getCurrentValue(), tap::arch::clock::getTimeMilliseconds() - prevTime); 10 and 0.66 gives approx 1 rotation
+        velocityPid.runControllerDerivateError(-1 - getCurrentValueIntegral(), tap::arch::clock::getTimeMilliseconds() - prevTime);
         prevTime = tap::arch::clock::getTimeMilliseconds();
         yaw.setDesiredOutput(velocityPid.getOutput());
     }else{

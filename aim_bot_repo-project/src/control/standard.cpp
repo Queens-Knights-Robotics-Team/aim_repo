@@ -29,9 +29,9 @@ Robot::Robot(Drivers &drivers)
       turretGimbal(turret, drivers.controlOperatorInterface),
       yawMotor(&drivers, MotorId::MOTOR8, CanBus::CAN_BUS1, false, "e"),
         eduPidConfig{
-            .kp = 1000,
+            .kp = 10000,
             .ki = 0,
-            .kd = 0,
+            .kd = 1000,
             .maxICumulative = 0,
             .maxOutput = 16000
         },
